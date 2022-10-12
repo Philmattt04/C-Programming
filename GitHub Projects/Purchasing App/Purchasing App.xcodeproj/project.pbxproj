@@ -6,8 +6,12 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D5AD9CA428F7530D00ED75F1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D5AD9CA328F7530D00ED75F1 /* main.c */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		D5AD9C3F28F4B7E000ED75F1 /* CopyFiles */ = {
+		D5AD9C9E28F7530D00ED75F1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -19,11 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D5AD9C4128F4B7E000ED75F1 /* GitHub Projects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "GitHub Projects"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5AD9CA028F7530D00ED75F1 /* Purchasing App */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Purchasing App"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5AD9CA328F7530D00ED75F1 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D5AD9C3E28F4B7E000ED75F1 /* Frameworks */ = {
+		D5AD9C9D28F7530D00ED75F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,64 +38,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D5AD9C3828F4B7E000ED75F1 = {
+		D5AD9C9728F7530D00ED75F1 = {
 			isa = PBXGroup;
 			children = (
-				D5AD9C4328F4B7E000ED75F1 /* GitHub Projects */,
-				D5AD9C4228F4B7E000ED75F1 /* Products */,
+				D5AD9CA228F7530D00ED75F1 /* Purchasing App */,
+				D5AD9CA128F7530D00ED75F1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D5AD9C4228F4B7E000ED75F1 /* Products */ = {
+		D5AD9CA128F7530D00ED75F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D5AD9C4128F4B7E000ED75F1 /* GitHub Projects */,
+				D5AD9CA028F7530D00ED75F1 /* Purchasing App */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D5AD9C4328F4B7E000ED75F1 /* GitHub Projects */ = {
+		D5AD9CA228F7530D00ED75F1 /* Purchasing App */ = {
 			isa = PBXGroup;
 			children = (
+				D5AD9CA328F7530D00ED75F1 /* main.c */,
 			);
-			path = "GitHub Projects";
+			path = "Purchasing App";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D5AD9C4028F4B7E000ED75F1 /* GitHub Projects */ = {
+		D5AD9C9F28F7530D00ED75F1 /* Purchasing App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D5AD9C4828F4B7E000ED75F1 /* Build configuration list for PBXNativeTarget "GitHub Projects" */;
+			buildConfigurationList = D5AD9CA728F7530D00ED75F1 /* Build configuration list for PBXNativeTarget "Purchasing App" */;
 			buildPhases = (
-				D5AD9C3D28F4B7E000ED75F1 /* Sources */,
-				D5AD9C3E28F4B7E000ED75F1 /* Frameworks */,
-				D5AD9C3F28F4B7E000ED75F1 /* CopyFiles */,
+				D5AD9C9C28F7530D00ED75F1 /* Sources */,
+				D5AD9C9D28F7530D00ED75F1 /* Frameworks */,
+				D5AD9C9E28F7530D00ED75F1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "GitHub Projects";
-			productName = "GitHub Projects";
-			productReference = D5AD9C4128F4B7E000ED75F1 /* GitHub Projects */;
+			name = "Purchasing App";
+			productName = "Purchasing App";
+			productReference = D5AD9CA028F7530D00ED75F1 /* Purchasing App */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D5AD9C3928F4B7E000ED75F1 /* Project object */ = {
+		D5AD9C9828F7530D00ED75F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					D5AD9C4028F4B7E000ED75F1 = {
+					D5AD9C9F28F7530D00ED75F1 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
-			buildConfigurationList = D5AD9C3C28F4B7E000ED75F1 /* Build configuration list for PBXProject "GitHub Projects" */;
+			buildConfigurationList = D5AD9C9B28F7530D00ED75F1 /* Build configuration list for PBXProject "Purchasing App" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -98,28 +104,29 @@
 				en,
 				Base,
 			);
-			mainGroup = D5AD9C3828F4B7E000ED75F1;
-			productRefGroup = D5AD9C4228F4B7E000ED75F1 /* Products */;
+			mainGroup = D5AD9C9728F7530D00ED75F1;
+			productRefGroup = D5AD9CA128F7530D00ED75F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D5AD9C4028F4B7E000ED75F1 /* GitHub Projects */,
+				D5AD9C9F28F7530D00ED75F1 /* Purchasing App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D5AD9C3D28F4B7E000ED75F1 /* Sources */ = {
+		D5AD9C9C28F7530D00ED75F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AD9CA428F7530D00ED75F1 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D5AD9C4628F4B7E000ED75F1 /* Debug */ = {
+		D5AD9CA528F7530D00ED75F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -177,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		D5AD9C4728F4B7E000ED75F1 /* Release */ = {
+		D5AD9CA628F7530D00ED75F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -228,7 +235,7 @@
 			};
 			name = Release;
 		};
-		D5AD9C4928F4B7E000ED75F1 /* Debug */ = {
+		D5AD9CA828F7530D00ED75F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -236,7 +243,7 @@
 			};
 			name = Debug;
 		};
-		D5AD9C4A28F4B7E000ED75F1 /* Release */ = {
+		D5AD9CA928F7530D00ED75F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -247,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D5AD9C3C28F4B7E000ED75F1 /* Build configuration list for PBXProject "GitHub Projects" */ = {
+		D5AD9C9B28F7530D00ED75F1 /* Build configuration list for PBXProject "Purchasing App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5AD9C4628F4B7E000ED75F1 /* Debug */,
-				D5AD9C4728F4B7E000ED75F1 /* Release */,
+				D5AD9CA528F7530D00ED75F1 /* Debug */,
+				D5AD9CA628F7530D00ED75F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D5AD9C4828F4B7E000ED75F1 /* Build configuration list for PBXNativeTarget "GitHub Projects" */ = {
+		D5AD9CA728F7530D00ED75F1 /* Build configuration list for PBXNativeTarget "Purchasing App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5AD9C4928F4B7E000ED75F1 /* Debug */,
-				D5AD9C4A28F4B7E000ED75F1 /* Release */,
+				D5AD9CA828F7530D00ED75F1 /* Debug */,
+				D5AD9CA928F7530D00ED75F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D5AD9C3928F4B7E000ED75F1 /* Project object */;
+	rootObject = D5AD9C9828F7530D00ED75F1 /* Project object */;
 }
