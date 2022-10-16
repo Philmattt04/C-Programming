@@ -1,123 +1,141 @@
 //
-//  mathieu_prog5.c
+//  mathieu_prog6.c
 //  Programming 1
 //
-//  Created by Philippe Mathieu on 10/3/22.
-// This program implements a menu driven program that displays a menu, menu options, and the menu option choices
+//  Created by Philippe Mathieu on 10/10/22.
+/* This program implements a menu driven program that displays a menu, menu options, and the menu option choices
+ using function prototypes and definitions, input/output parameters, and file input & ouput
+ */
 
-#include <stdio.h> // for printf & scanf
-#include <ctype.h> // for toupper & tolower
+#include <stdio.h> //for printf & scanf
+#include <ctype.h> //for toupper & tolower
 
-// function prototypes
-void Greeting(void);
-// greets the user to the purchansing app
+// Function paramaters
+void Greeting(void); //welcome the user to the purchasing app
+void ViewBalance(double balance);
+//input: double
+//display the current account balance
 
-char OptionList(void);
-// displays the the program options and gets the user's selection
+void OptionListPtr(char* choicePtr);
+//input/ output character parameter
+//display the program options and get the users selection
 
-void ProcessOption(char choice);
-// the user inputs their choice
-// displays a message based on the user's choice
-// calls the DisplayMenu function if the user selects 'S' or 's'
+double ProcessOption(char choice, double balance);
+//input: a character (choice) and a double (balance) by copy
+//uses conditions or switch to process the choice ‘s’,’o’,’b’,or ‘a’
+// returns the updated balance if a purchase was made or money was added to the account
 
 void DisplayMenu(void);
-// displays menu options and prices
-
+//display beverage/food options and prices
 
 int main()
 {
-    char choiceInMain = '\0';
-    Greeting(); //fucntion call greeting the user
-    choiceInMain = OptionList(); //calls the function OptionList
-    choiceInMain = tolower(choiceInMain); //changes the choiceInMain to a lowercase letter
+    char choiceInMain;
+    FILE *inPtr, * outPtr;
+    double balanceInMain;
+    printf("\nGetting the balance from the file\n\n");
+    //Opens the file to display the balance
+    inPtr = fopen("/Users/philsterr/Desktop/COP2220/COP2220 Projects/Programming 1/COP 2220/accountBalance.txt", "r");
+    fscanf(inPtr, " %lf", &balanceInMain);
     
-    if(choiceInMain == 'q')
+    //Function calls
+    ViewBalance(balanceInMain);
+    Greeting();
+    OptionListPtr(&choiceInMain);
+    
+    choiceInMain = tolower(choiceInMain);
+    while (choiceInMain != 'q')
     {
-        printf("\nHave a great day!\n"); //sends the user a goodbye message when user selects 'q' or 'Q'
-        return 0;
+        // Calls fucntion ProcessOption and passes variables choiceInMain and balanceInMain
+        balanceInMain = ProcessOption(choiceInMain, balanceInMain);
+        // Calls function OptionListPtr and passes the "address of" choiceInMain
+        OptionListPtr(&choiceInMain);
+        // Changes the choice made by the user to a lowercase letter
+        choiceInMain = tolower(choiceInMain);
+
     }
+    printf("\nSaving the balance to the file\n\n");
+    // Connects to the file
+    outPtr = fopen("/Users/philsterr/Desktop/COP2220/COP2220 Projects/Programming 1/COP 2220/accountBalance.txt", "w");
+    // Saves the file
+    fprintf(outPtr, "%f", balanceInMain);
+    printf("\nHave a great day!\n\n");
+    fclose(inPtr);
+    fclose(outPtr);
     
-    ProcessOption(choiceInMain);
-    
-    while (choiceInMain != 'q') //while loop that operates the OptionList function
-                                //when the user does not select 'q'
-    {
-        choiceInMain = OptionList(); //calls the function OptionList
-        choiceInMain = tolower(choiceInMain); //changes the choiceInMain to a lowercase letter
-        
-        if(choiceInMain == 'q') //if user inputs 'q' or 'Q' the program will stop
-        {
-            continue;
-        }
-        ProcessOption(choiceInMain); //calls the function ProcessOption
-    }
-    printf("\nHave a great day!\n"); //sends the user a goodbye message when user selects 'q' or 'Q'
     return 0;
 }
 
-// the user inputs their choice
-// displays a message based on the user's choice
-void ProcessOption(char choice)
-{
-    if(choice == 's')
-    {
-        printf("\nDisplay the menu");
-        DisplayMenu(); //calls the DisplayMenu function if the user selects 'S' or 's'
-
-    }
-    else if(choice == 'o')
-    {
-        printf("\nComplete an order if there is enough money");
-        
-    }
-    else if (choice == 'b')
-    {
-        printf("\nDisplay the account balance");
-
-    }
-    else if (choice == 'a')
-    {
-        
-        printf("\nAdd money to the account");
-    }
-    else
-    {
-        printf("\nThat is not a valid option");
-    }
-
-}
-
-// greets the user to the purchansing app
-void Greeting()
+void Greeting() //Greets the user to the purchasing app
 {
     printf("Welcome to the Café Express!");
     printf("\nWe serve delicious drinks and snacks!\n");
-
 }
-// displays the the program options and gets the user's selection
-char OptionList()
+
+
+void ViewBalance(double balance) //Displays the balance from the file
 {
-    char option;
-    printf("\n-----------------------------------------------------------------");
+    printf("\nYour current account balance is $%.2f\n\n", balance);
+}
+
+void OptionListPtr(char* choicePtr) //Displays the list of options
+{
+    printf("\n************************************************\n");
+    printf("\nWhat would you like to do?\n");
+    printf("\nPlease select from the following options: \n");
     printf("\n'S' to view the snack and beverages available for purchase");
     printf("\n'O' to order coffee or a snack");
     printf("\n'B' to view your account balance");
     printf("\n'A' to add money to your account");
     printf("\n'Q' to quit");
-    printf("\nEnter your selection: \n");
-    scanf(" %c", &option);
-    return option;
+    printf("\nEnter your selection: ");
+    scanf(" %c", choicePtr);
 }
-// displays menu options and prices
-void DisplayMenu()
+
+ double ProcessOption(char choice, double balance)
+//Inputs the choice from the user and the balance
+//Uses conditions to process choices 's', 'o', 'b' or 'a'
+{
+     if(choice == 's')
+     {
+         printf("\nDisplay the menu");
+         DisplayMenu(); //calls the DisplayMenu function if the user selects 'S' or 's'
+
+     }
+     else if(choice == 'o')
+     {
+         printf("\n-----------------------------------------------------------------\n");
+         printf("\nComplete an order if there is enough money\n");
+         
+     }
+     else if (choice == 'b')
+     {
+         printf("\n-----------------------------------------------------------------\n");
+         printf("\nDisplay the account balance\n");
+
+     }
+     else if (choice == 'a')
+     {
+         printf("\n-----------------------------------------------------------------\n");
+         printf("\nAdd money to the account\n");
+     }
+     else
+     {
+         printf("\n-----------------------------------------------------------------\n");
+         printf("\nThat is not a valid option\n");
+     }
+     return balance;
+}
+void DisplayMenu() //Displays the menu once the user asks to display it
 {
     printf("\n-----------------------------------------------------------------");
     printf("\nHere are the drink and snack options: ");
-    printf("\n1. Water:          $1.50");
-    printf("\n2. Orange Juice:   $2.35");
-    printf("\n3. Iced Coffee:    $2.50");
-    printf("\n4. Iced Tea:       $3.00");
-    printf("\n5. Strawberry Banana Smoothie: $3.50");
-    printf("\n6. Chocolate Chip Cookie:  $0.99");
-    printf("\n7. Grilled Cheese:  $5.25\n");
+    printf("\n1. Hot coffee           $2.35\n");
+    printf("\n2. Iced coffee          $2.35\n");
+    printf("\n3. Hot Latte            $4.68\n");
+    printf("\n4. Iced Latte           $4.68\n");
+    printf("\n5. Butter Croissant     $3.50\n");
+    printf("\n6. Almond Croissant     $4.50\n");
+    printf("\n7. Blueberry muffin top $3.25\n\n");
 }
+
